@@ -7,7 +7,7 @@ const sorteoSchema = new mongoose.Schema({
     required: true,
   },
   estado: {
-    type: Number,
+    type: String,
     default: 'activo',
   },
 
