@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const sorteoSchema = new mongoose.Schema({
+  nombre: {
+    type: String,
+    minlength: 5,
+    required: true,
+  },
   fecha: {
     type: Date,
     minlength: 5,
@@ -8,12 +13,7 @@ const sorteoSchema = new mongoose.Schema({
   },
   estado: {
     type: String,
-    default: 'activo',
-  },
-
-  administrador_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Administrador',
+    default: 'desactivado',
   },
 });
 

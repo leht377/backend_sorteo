@@ -22,27 +22,30 @@ mongoose
 app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
+app.use(middlewares.tokenExtractor);
 
-const AdministradorRouter = require('./controllers/Administrador');
-app.use('/api/Administrador', AdministradorRouter);
+const loginRouter = require('./controllers/login');
+app.use('/api/login', loginRouter);
+
+const ClienteRouter = require('./controllers/Cliente');
+app.use('/api/Cliente', ClienteRouter);
+
+const GanadoresRouter = require('./controllers/Ganadores');
+app.use('/api/Ganadores', GanadoresRouter);
 
 const BoletaRouter = require('./controllers/Boleta');
 app.use('/api/Boleta', BoletaRouter);
 
-const ClienteRouter = require('./controllers/Cliente');
-app.use('/api/Cliente', ClienteRouter);
+// app.use(middlewares.decodeToken);
+
+const AdministradorRouter = require('./controllers/Administrador');
+app.use('/api/Administrador', AdministradorRouter);
 
 const SalaRouter = require('./controllers/Sala');
 app.use('/api/Sala', SalaRouter);
 
 const SorteoRouter = require('./controllers/Sorteo');
 app.use('/api/Sorteo', SorteoRouter);
-
-const GanadoresRouter = require('./controllers/Ganadores');
-app.use('/api/Ganadores', GanadoresRouter);
-
-const loginRouter = require('./controllers/login');
-app.use('/api/login', loginRouter);
 
 app.use(middlewares.unknownEndpoint);
 app.use(middlewares.errorHandler);

@@ -6,8 +6,36 @@ const salaSchema = new mongoose.Schema({
     minlength: 5,
     required: true,
   },
+
   precio: {
     type: Number,
+    minlength: 5,
+    required: true,
+  },
+
+  numeroGanador: {
+    type: Number,
+    default: 1000,
+  },
+
+  boletaGanadora: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Boleta',
+  },
+
+  fecha_sorteo: {
+    type: Date,
+    minlength: 5,
+    required: true,
+  },
+
+  estado_sorteo: {
+    type: String,
+    default: 'activo',
+  },
+
+  hora_sorteo: {
+    type: String,
     minlength: 5,
     required: true,
   },
@@ -15,8 +43,12 @@ const salaSchema = new mongoose.Schema({
   asientos_disponibles: {
     type: Number,
     minlength: 5,
-    required: true,
     default: 50,
+  },
+
+  recaudado: {
+    type: Number,
+    default: 0,
   },
 
   sorteo_id: {

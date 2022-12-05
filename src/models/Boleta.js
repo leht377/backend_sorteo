@@ -5,20 +5,27 @@ const boletaSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
+  valor_pagado: {
+    type: Number,
+    require: true,
+  },
 
-  sala_Id: {
+  sala_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Sala',
+    required: true,
   },
 
   cliente_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Cliente',
+    required: true,
   },
 
   sorteo_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Sorteo',
+    required: true,
   },
 });
 

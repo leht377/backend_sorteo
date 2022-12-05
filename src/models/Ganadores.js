@@ -4,6 +4,7 @@ const ganadoresSchema = new mongoose.Schema({
   boleta_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Boleta',
+    require: true,
   },
 });
 
